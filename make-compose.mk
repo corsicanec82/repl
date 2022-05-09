@@ -12,5 +12,8 @@ compose-bash:
 compose-lint:
 	docker compose run app make lint
 
+compose-test:
+	docker compose run app make test
+
 compose:
 	docker compose up

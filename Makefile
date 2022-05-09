@@ -8,8 +8,13 @@ start:
 
 check: lint test
 
-lint:
+lint: lint-rubocop lint-slim
+
+lint-rubocop:
 	bundle exec rubocop
+
+lint-slim:
+	bundle exec slim-lint app/views
 
 test:
 	bin/rails test
