@@ -4,7 +4,7 @@ install:
 	bundle
 
 start:
-	bin/rails s -b 0.0.0.0 -p 3000
+	bin/rails server -b 0.0.0.0 -p 3000
 
 check: lint test
 
@@ -13,3 +13,8 @@ lint:
 
 test:
 	bin/rails test
+
+console:
+	bin/rails console
+
+.PHONY: test
