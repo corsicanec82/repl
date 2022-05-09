@@ -3,3 +3,4 @@ services:
     build:
       context: .
     image: corsicanec82/repl
+    command: make check
