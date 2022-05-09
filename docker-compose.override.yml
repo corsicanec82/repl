@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      args:
+        - UID=1000
+        - GID=1000
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    command: make start
