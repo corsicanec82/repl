@@ -1,4 +1,12 @@
+AllCops:
+  NewCops: enable
+
 require:
   - rubocop-rails
   - rubocop-performance
   - rubocop-rake
+
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false

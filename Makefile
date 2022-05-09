@@ -9,6 +9,9 @@ compose-install:
 compose-bash:
 	docker compose run --service-ports app bash
 
+compose-lint:
+	docker compose run app make lint
+
 compose:
 	docker compose up
 
