@@ -4,16 +4,19 @@ compose-build:
 	docker compose build
 
 compose-install:
-	docker compose run app make install
+	docker compose run --rm app make install
 
 compose-bash:
-	docker compose run --service-ports app bash
+	docker compose run --rm --service-ports app bash
 
 compose-lint:
-	docker compose run app make lint
+	docker compose run --rm app make lint
 
 compose-test:
-	docker compose run app make test
+	docker compose run --rm app make test
 
 compose:
-	docker compose up
+	docker compose up -d
+
+compose-down:
+	docker compose down --remove-orphans

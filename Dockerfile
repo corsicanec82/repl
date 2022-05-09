@@ -7,7 +7,7 @@ RUN npm install -g yarn
 
 ARG UID=1000
 ARG GID=1000
-ARG USERNAME=vombat
+ARG USERNAME=runner
 
 RUN groupadd -g $GID $USERNAME
 RUN useradd -u $UID -g $GID -m $USERNAME
