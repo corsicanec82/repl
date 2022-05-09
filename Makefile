@@ -1,7 +1,8 @@
 include make-compose.mk
 
 install:
-	bundle
+	bin/setup
+	yarn install
 
 start:
 	bin/rails server -b 0.0.0.0 -p 3000

@@ -34,4 +34,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/vendor/**
+/vendor/
+/node_modules/
+/app/assets/builds/
