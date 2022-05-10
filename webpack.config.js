@@ -8,7 +8,10 @@ const getPath = (filepath) => path.resolve(__dirname, `app/${filepath}`);
 
 export default {
   entry: {
-    application: getPath('javascript/application.js'),
+    application: [
+      getPath('javascript/application.js'),
+      getPath('assets/stylesheets/application.scss'),
+    ],
   },
   output: {
     path: path.resolve(__dirname, 'app/assets/builds'),
@@ -19,10 +22,12 @@ export default {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
+          'postcss-loader',
+          'sass-loader',
         ],
       },
     ],
