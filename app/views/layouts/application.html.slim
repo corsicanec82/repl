@@ -2,7 +2,10 @@ doctype html
 html
   head
     title Repl
+
     = stylesheet_link_tag 'application'
+
+    = javascript_include_tag 'vendors', defer: true
     = javascript_include_tag 'application', async: true
   body
     = yield
