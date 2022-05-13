@@ -17,3 +17,5 @@ USER $USERNAME
 WORKDIR /app
 
 RUN bundle config set path "vendor/bundle"
+
+# TODO: add install dependencies, build frontend & start command

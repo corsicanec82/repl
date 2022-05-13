@@ -10,12 +10,8 @@ services:
       - 3000:3000
     command: make start
 
-  fronend:
-    build:
-      context: .
-      args:
-        - UID=1000
-        - GID=1000
+  frontend:
+    image: corsicanec82/repl:cached
     volumes:
       - .:/app
     command: make start-frontend

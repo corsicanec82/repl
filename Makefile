@@ -7,6 +7,9 @@ install:
 start:
 	bin/rails server -b 0.0.0.0 -p 3000
 
+build-frontend:
+	yarn build
+
 start-frontend:
 	npx nodemon -L --watch webpack.config.js --exec yarn build:watch
 
