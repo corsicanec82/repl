@@ -1,5 +1,7 @@
 # README
 
+[![github action status](https://github.com/corsicanec82/repl/workflows/CI/badge.svg)](https://github.com/corsicanec82/repl/actions)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
