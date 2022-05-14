@@ -4,16 +4,16 @@ compose-build:
 	docker compose build
 
 compose-install:
-	docker compose run --rm app make install
+	docker compose run --rm web make install
 
 compose-bash:
-	docker compose run --rm app bash
+	docker compose run --rm web bash
 
 compose-lint:
-	docker compose run --rm app make lint
+	docker compose run --rm web make lint
 
 compose-test:
-	docker compose run --rm app make test
+	docker compose run --rm web make test
 
 compose:
 	docker compose up -d

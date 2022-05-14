@@ -1,0 +1,3 @@
+repl.saway.net {
+  reverse_proxy web:3000
+}

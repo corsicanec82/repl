@@ -1,5 +1,12 @@
 version: "3.9"
 
 services:
-  app:
+  web:
     command: make start-production
+
+  caddy:
+    image: caddy:2.5.1
+    volumes:
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - 443:443
