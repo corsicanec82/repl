@@ -39,7 +39,7 @@ jobs:
         with:
           context: .
           target: latest
-          cache-from: corsicanec82/repl:latest
+          cache-from: corsicanec82/repl:cached
           cache-to: type=inline
           tags: corsicanec82/repl:latest
 
