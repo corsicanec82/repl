@@ -22,28 +22,18 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build cached image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          target: cached
-          cache-from: corsicanec82/repl:cached
-          cache-to: type=inline
-          tags: corsicanec82/repl:cached
-          push: true
+      - name: Build cached
+        run: docker compose build app
 
-      - name: Build latest image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          target: latest
-          cache-from: corsicanec82/repl:cached
-          cache-to: type=inline
-          tags: corsicanec82/repl:latest
+      - name: Push cached
+        run: docker compose push app
+
+      - name: Build latest
+        run: docker compose -f docker-compose.yml build app
 
       - name: Run checks
         run: docker compose -f docker-compose.yml up --abort-on-container-exit
 
-      - name: Push
-        run: docker push corsicanec82/repl:latest
+      - name: Push latest
+        run: docker compose -f docker-compose.yml push app
         if: ${{ github.event_name == 'push' }}
