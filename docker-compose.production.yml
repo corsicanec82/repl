@@ -10,3 +10,5 @@ services:
       - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
     ports:
       - 443:443
+    depends_on:
+      - web
