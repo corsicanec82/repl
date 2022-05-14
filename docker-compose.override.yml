@@ -1,13 +1,17 @@
+version: "3.9"
+
 services:
   app:
     build:
       args:
-        - UID=1000
-        - GID=1000
+        - UID=${UID}
+        - GID=${GID}
+      target: cached
+    image: corsicanec82/repl:cached
     volumes:
       - .:/app
     ports:
-      - 3000:3000
+      - ${PORT}:3000
     command: make start
 
   frontend:

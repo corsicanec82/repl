@@ -1,5 +1,9 @@
+version: "3.9"
+
 services:
   app:
-    build: .
-    image: corsicanec82/repl:cached
+    build:
+      context: .
+      target: latest
+    image: corsicanec82/repl:latest
     command: make check

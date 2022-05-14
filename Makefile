@@ -1,3 +1,11 @@
+ifneq (,$(wildcard ./.env))
+	include .env
+	export
+endif
+
+export UID = $(shell id -u)
+export GID = $(shell id -g)
+
 include make-compose.mk
 
 install:
@@ -6,6 +14,9 @@ install:
 
 start:
 	bin/rails server -b 0.0.0.0 -p 3000
+
+start-production:
+	bin/rails server -b 0.0.0.0 -p 3000 -e production
 
 build-frontend:
 	yarn build

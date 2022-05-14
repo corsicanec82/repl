@@ -1,4 +1,4 @@
-FROM ruby:3.1.2
+FROM ruby:3.1.2 AS cached
 
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -yq nodejs
@@ -18,4 +18,18 @@ WORKDIR /app
 
 RUN bundle config set path "vendor/bundle"
 
-# TODO: add install dependencies, build frontend & start command
+
+FROM cached AS latest
+
+COPY --chown=$UID:$GID Gemfile .
+COPY --chown=$UID:$GID Gemfile.lock .
+RUN bundle install
+
+COPY --chown=$UID:$GID package.json .
+COPY --chown=$UID:$GID yarn.lock .
+RUN yarn install
+
+COPY --chown=$UID:$GID . .
+RUN yarn build
+
+CMD ["make", "start-production"]
