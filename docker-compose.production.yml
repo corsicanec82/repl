@@ -2,6 +2,10 @@ version: "3.9"
 
 services:
   web:
+    image: corsicanec82/repl:latest
+    environment:
+      - SECRET_KEY_BASE
+      - RAILS_SERVE_STATIC_FILES
     command: make start-production
 
   caddy:
@@ -10,5 +14,6 @@ services:
       - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
     ports:
       - 443:443
+      - 80:80
     depends_on:
       - web

@@ -10,8 +10,6 @@ services:
     image: corsicanec82/repl:cached
     volumes:
       - .:/app
-    ports:
-      - ${PORT}:3000
     command: make start
 
   frontend:
@@ -19,3 +17,13 @@ services:
     volumes:
       - .:/app
     command: make start-frontend
+
+  caddy:
+    image: caddy:2.5.1
+    volumes:
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - 443:443
+      - 80:80
+    depends_on:
+      - web

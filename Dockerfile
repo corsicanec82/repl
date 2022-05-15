@@ -31,5 +31,6 @@ RUN yarn install
 
 COPY --chown=$UID:$GID . .
 RUN yarn build
+RUN RAILS_ENV=production SECRET_KEY_BASE=key_for_build bin/rails assets:precompile
 
 CMD ["make", "start-production"]

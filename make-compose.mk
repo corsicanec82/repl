@@ -20,3 +20,12 @@ compose:
 
 compose-down:
 	docker compose down --remove-orphans
+
+compose-test-build:
+	docker compose -f docker-compose.yml build
+
+compose-test-check:
+	docker compose -f docker-compose.yml up --remove-orphans --abort-on-container-exit
+
+compose-production:
+	docker compose -f docker-compose.production.yml up

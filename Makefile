@@ -1,8 +1,3 @@
-ifneq (,$(wildcard ./.env))
-	include .env
-	export
-endif
-
 export UID = $(shell id -u)
 export GID = $(shell id -g)
 
