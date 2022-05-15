@@ -1,30 +1,25 @@
-compose-setup: compose-build compose-install
-
 compose-build:
 	docker compose build
-
-compose-install:
-	docker compose run --rm web make install
-
-compose-bash:
-	docker compose run --rm web bash
-
-compose-lint:
-	docker compose run --rm web make lint
-
-compose-test:
-	docker compose run --rm web make test
 
 compose:
 	docker compose up -d
 
+compose-restart:
+	docker compose restart web
+
+compose-restart-full:
+	docker compose restart
+
 compose-down:
 	docker compose down --remove-orphans
 
-compose-test-build:
+compose-clear:
+	docker compose down --remove-orphans --volumes
+
+ci-build:
 	docker compose -f docker-compose.yml build
 
-compose-test-check:
+ci-check:
 	docker compose -f docker-compose.yml up --remove-orphans --abort-on-container-exit
 
 compose-production:

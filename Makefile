@@ -2,6 +2,7 @@ export UID = $(shell id -u)
 export GID = $(shell id -g)
 
 include make-compose.mk
+include make-app.mk
 
 install:
 	bin/setup
